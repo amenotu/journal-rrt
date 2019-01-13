@@ -6,12 +6,24 @@ export interface AddEntry {
     text: string;
 }
 
-export type EntryActions = AddEntry;
+export interface DeleteEntry {
+    type: constants.DELETE_ENTRY;
+    index: number;
+}
+
+export type EntryActions = AddEntry | DeleteEntry;
 
 export function addEntry(date: string, text: string): AddEntry {
     return {
         type: constants.ADD_ENTRY,
         date,
         text
+    }
+}
+
+export function deleteEntry(index: number): DeleteEntry {
+    return {
+        type: constants.DELETE_ENTRY,
+        index
     }
 }

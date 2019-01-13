@@ -1,8 +1,8 @@
 import Entries from '../components/Entries';
-// import * as actions from '../actions';
 import { StoreState } from '../types/index';
 import { connect } from 'react-redux';
-// import { Dispatch } from 'redux';
+import * as actions from '../actions/index';
+import { Dispatch } from 'redux';
 
 export function mapStateToProps({ entries }: StoreState) {
     return {
@@ -10,4 +10,10 @@ export function mapStateToProps({ entries }: StoreState) {
     }
   }
 
-export default connect(mapStateToProps, null)(Entries);
+export function mapDispatchToProps(dispatch: Dispatch<actions.EntryActions>) {
+    return {
+        onDeleteEntry: (index: number) => dispatch(actions.deleteEntry(index))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Entries);

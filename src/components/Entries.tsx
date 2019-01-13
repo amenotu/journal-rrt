@@ -1,15 +1,12 @@
 import * as React from 'react';
-import { Card } from 'semantic-ui-react';
-
-//I want this component to render the entries stored in the Entries array, found in the Redux store
+import { Card, Button } from 'semantic-ui-react';
 
 export interface Props {
-    entries: {date: string, text: string}[]
+    entries: {date: string, text: string}[];
+    onDeleteEntry: (index: number) => void;
   }
 
-function Entries({ entries }: Props) {
-    console.log('this is entries: ', entries);
-
+function Entries({ entries, onDeleteEntry }: Props) {
     const mappedEntries = entries.map((entry, i: number) => (
         (
             <Card key={ i }>
@@ -17,6 +14,7 @@ function Entries({ entries }: Props) {
                 <Card.Content>
                 <p>{ entry.text }</p>
                 </Card.Content>
+                <Button onClick={ () => onDeleteEntry(i) }>DELETE</Button>
             </Card>
         )
     ))
@@ -24,7 +22,6 @@ function Entries({ entries }: Props) {
     return (
         <div>{ mappedEntries }</div>
     )
-
 }
 
 export default Entries;

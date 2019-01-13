@@ -7,11 +7,9 @@ import { reducer } from './reducers/index';
 import { StoreState } from './types/index';
 import App from './components/App';
 import { Provider } from 'react-redux';
-// import { string } from 'prop-types';
-// import { devToolsEnhancer } from 'redux-devtools-extension';
 
 const store = createStore<StoreState>(reducer, {
-    entries: [{date: '12', text: 'Whatever goes in here'}, {date: '12', text: 'Whatever goes in here'}]
+    entries: [{date: '12', text: 'Whatever goes in here'}, {date: '3894', text: 'Whatever goes in here and here and here'}]
   }, (window as any).__REDUX_DEVTOOLS_EXTENSION__ &&
   (window as any).__REDUX_DEVTOOLS_EXTENSION__());
 
