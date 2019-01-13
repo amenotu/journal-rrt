@@ -8,7 +8,7 @@ export function reducer(state: StoreState, action: any): StoreState {
     case ADD_ENTRY:
       return { ...state, entries: [...state.entries, {date: action.date, text: action.text}] }
     case DELETE_ENTRY:
-      return { ...state }
+      return { ...state, entries: state.entries.filter(entry => state.entries.indexOf(entry) !== action.index) }
   }
   return state;
 }
