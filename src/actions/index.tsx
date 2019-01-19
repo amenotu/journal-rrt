@@ -11,7 +11,14 @@ export interface DeleteEntry {
     index: number;
 }
 
-export type EntryActions = AddEntry | DeleteEntry;
+export interface EditEntry {
+    type: constants.EDIT_ENTRY;
+    date: string;
+    text: string;
+    index: number;
+}
+
+export type EntryActions = AddEntry | DeleteEntry | EditEntry;
 
 export function addEntry(date: string, text: string): AddEntry {
     return {
@@ -24,6 +31,15 @@ export function addEntry(date: string, text: string): AddEntry {
 export function deleteEntry(index: number): DeleteEntry {
     return {
         type: constants.DELETE_ENTRY,
+        index
+    }
+}
+
+export function editEntry(date: string, text: string, index: number): EditEntry {
+    return {
+        type: constants.EDIT_ENTRY,
+        date,
+        text,
         index
     }
 }

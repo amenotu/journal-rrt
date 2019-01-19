@@ -2,30 +2,35 @@ import * as React from 'react';
 import { Form, TextArea, Input } from 'semantic-ui-react'
 
 export interface Props {
-    onSubmitEntry: (date: string, text: string) => void;
+    onSubmitEntry: (date: string, text: string, index?: number) => void;
 }
 
 export interface State {
     date?: string;
     text?: string;
+    index?: number;
 }
 
 class EntryForm extends React.Component<Props, State> {
 
-    state = { date: '', text: '' }
+    constructor(props: Props) {
+        super(props);
+        this.state = { date: '', text: '', index: undefined };
+      }
+
+    state = { date: '', text: '', index: undefined }
 
     handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => this.setState({ date: e.target.value })
 
     handleTextChange = (e: React.ChangeEvent<HTMLInputElement>) => this.setState({ text: e.target.value })
   
     handleSubmit = () => {
-        const { date, text } = this.state
+        const { date, text } = this.state;
         const { onSubmitEntry } = this.props;
-        console.log('current state:', this.state);
-        console.log( date, ' ', text);
-  
+
         this.setState({ date: '', text: '' })
         onSubmitEntry(date, text);
+
     }
 
     render() {
@@ -49,7 +54,7 @@ class EntryForm extends React.Component<Props, State> {
                             label='Entry' 
                             placeholder='Start typing your entry here...'
                             name='text'
-                            value={ text }
+                            value={ text}
                             onChange={ this.handleTextChange }
                             required/>
                         <Form.Button content='Submit' />
