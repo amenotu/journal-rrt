@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Form, TextArea, Input } from 'semantic-ui-react'
+import { Form, TextArea, Input, Container, Divider } from 'semantic-ui-react'
 
 export interface Props {
     onSubmitEntry: (date: string, text: string, index?: number) => void;
@@ -38,28 +38,31 @@ class EntryForm extends React.Component<Props, State> {
 
         return (
             <div>
-                <p>Fill out the form to add an entry!</p>
-                <Form onSubmit={ this.handleSubmit }>
-                    <Form.Group>
-                        <Form.Field 
-                            control= { Input }
-                            label='Date'
-                            placeholder='Enter the date here...'
-                            onChange={ this.handleDateChange } 
-                            name='date' 
-                            value={ date }
-                            required/>
-                        <Form.Field 
-                            control= { TextArea } 
-                            label='Entry' 
-                            placeholder='Start typing your entry here...'
-                            name='text'
-                            value={ text}
-                            onChange={ this.handleTextChange }
-                            required/>
-                        <Form.Button content='Submit' />
-                    </Form.Group>
-                </Form>
+                <Container>
+                    <p>Fill out the form to add an entry!</p>
+                    <Form onSubmit={ this.handleSubmit }>
+                        <Form.Group>
+                            <Form.Field 
+                                control= { Input }
+                                label='Date'
+                                placeholder='Enter the date here...'
+                                onChange={ this.handleDateChange } 
+                                name='date' 
+                                value={ date }
+                                required/>
+                            <Form.Field 
+                                control= { TextArea } 
+                                label='Entry' 
+                                placeholder='Start typing your entry here...'
+                                name='text'
+                                value={ text}
+                                onChange={ this.handleTextChange }
+                                required/>
+                            <Form.Button content='Submit' />
+                        </Form.Group>
+                    </Form>
+                </Container>
+                <Divider/>
             </div>
         )
     }
