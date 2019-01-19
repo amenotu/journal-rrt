@@ -75,7 +75,6 @@ class ModalExampleCloseConfig extends React.Component<Props, State> {
                         value={ currentText}
                         onChange={ (e: React.ChangeEvent<HTMLInputElement>) => this.handleTextChange(e) }
                         required/>
-                    <Form.Button content='Submit' />
                 </Form.Group>
             </Form>
           </Modal.Content>
@@ -83,6 +82,13 @@ class ModalExampleCloseConfig extends React.Component<Props, State> {
             <Button onClick={this.close} negative>
               Cancel
             </Button>
+            <Button
+              onClick={this.handleEditSubmit}
+              positive
+              labelPosition='right'
+              icon='checkmark'
+              content='Submit'
+            />
           </Modal.Actions>
         </Modal>
       </div>
