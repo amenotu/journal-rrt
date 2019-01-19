@@ -6,7 +6,7 @@ import EditableFormContainer from '../containers/EditFormContainer';
 function EntryMultiple(entryDate: string, text: string, index: number, callback1: Function){
 
     return (
-        <div>
+        <div key={ index }>
             <Container>
                 <Header>{ entryDate }</Header>
                 <Segment>{ text }</Segment>
