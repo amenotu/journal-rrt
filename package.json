@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@types/enzyme-adapter-react-16": "^1.0.3",
     "@types/jest": "23.3.12",
     "@types/node": "10.12.18",
     "@types/react": "^16.7.18",
@@ -34,5 +35,17 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "@types/enzyme": "^3.1.15",
+    "babel-plugin-transform-export-extensions": "^6.22.0",
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.7.1",
+    "enzyme-to-json": "^3.3.5",
+    "jest": "^23.6.0",
+    "jest-cli": "^23.6.0",
+    "react-test-renderer": "^16.7.0",
+    "redux-mock-store": "^1.5.3",
+    "ts-jest": "^23.10.5"
+  }
 }
