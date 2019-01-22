@@ -3,7 +3,7 @@ import { Container, Header, Segment, Button, Divider } from 'semantic-ui-react';
 import EditableFormContainer from '../containers/EditFormContainer';
 
 
-function EntryMultiple(entryDate: string, text: string, index: number, callback1: Function){
+function Entry(entryDate: string, text: string, index: number, callback1: Function){
 
     return (
         <div key={ index }>
@@ -24,4 +24,4 @@ function EntryMultiple(entryDate: string, text: string, index: number, callback1
     )
 } 
 
-export default EntryMultiple;
+export default Entry;
